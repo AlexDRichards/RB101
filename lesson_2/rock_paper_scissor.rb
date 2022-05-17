@@ -2,6 +2,15 @@
 #METHODS AND ARRAYS
 
 VALID_CHOICES = %w[rock paper scissors lizard spock]
+=begin
+WINNING_MOVES = {
+  rock: ['scissors','lizard']
+  paper: ['rock', 'lizard']
+  scissors: ['lizard', 'paper']
+  lizard: ['spock', 'paper']
+  spock: ['rock', 'scissors']
+}
+=end
 
 def win?(first, second)
   (first == 'rock' && second == 'scissors') ||
@@ -68,13 +77,14 @@ loop do # game loop
   paper disproves Spock, Spock vaporizes rock, 
   and as it always has, rock crushes scissors."
   ~Sheldon Cooper
+  =====================================================
   MSG
-
+ 
   prompt(welcome_message)
 
   loop do # round loop
     loop do
-      puts "ROUND #{round_counter}"
+      puts "***********ROUND #{round_counter}***********"
       display_score(player_score, computer_score)
       prompt("Choose one: #{VALID_CHOICES.join(',')} \n => you may use (r)
       for rock, (p) for paper, (sc) for scissors, (sp) for spock), (l)
